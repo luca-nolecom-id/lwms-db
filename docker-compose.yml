@@ -1,0 +1,19 @@
+version:  '3.3'
+volumes:
+  sql_data:
+    driver: local
+services:
+  db:
+      ports:
+        - "13306:3306"
+      image: mariadb:10.1.38
+      environment:
+        MYSQL_ROOT_PASSWORD: bYAyU_f^nm-#2^$F
+        MYSQL_DATABASE: rsmr_lwms
+        MYSQL_USER: rsmr_lwms
+        MYSQL_PASSWORD: sqlcuscusa
+        TZ: Europe/Rome
+      volumes:
+        - ./db:/docker-entrypoint-initdb.d/
+        - sql_data:/var/lib/mysql
+      restart: always
